@@ -2,5 +2,8 @@
 *.swp
 *.*~
 
+# ignore prebuilt headers
+*.h.gch
+
 # ignore test output
 *.out
