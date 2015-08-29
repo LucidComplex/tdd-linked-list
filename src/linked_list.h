@@ -16,7 +16,7 @@ typedef struct {
 	Node *tail;
 } LinkedList;
 
-LinkedList *initList() {
+LinkedList *init_list() {
 	LinkedList *list = malloc(sizeof(*list));
 	return list;
 }

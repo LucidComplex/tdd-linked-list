@@ -4,7 +4,7 @@
 #include "linked_list.h"
 
 void test_init() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	assert(0 != list);
 	assert(0 == list->size);
 	assert(0 == list->head);
@@ -12,7 +12,7 @@ void test_init() {
 }
 
 void test_prepend_one() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	prepend(list, 5);
 	assert(1 == list->size);
 	assert(0 != list->head);
@@ -21,7 +21,7 @@ void test_prepend_one() {
 }
 
 void test_prepend_two() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	prepend(list, 3);
 	prepend(list, 8);
 	assert(2 == list->size);
@@ -33,7 +33,7 @@ void test_prepend_two() {
 }
 
 void test_prepend_three() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	prepend(list, 3);
 	prepend(list, 8);
 	prepend(list, 1);
@@ -42,7 +42,7 @@ void test_prepend_three() {
 }
 
 void test_append_one() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	append(list, 7);
 	assert(7 == list->head->element);
 	assert(list->head == list->tail);
@@ -50,7 +50,7 @@ void test_append_one() {
 }
 
 void test_append_two() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	append(list, 1);
 	append(list, 72);
 	assert(2 == list->size);
@@ -60,7 +60,7 @@ void test_append_two() {
 }
 
 void test_append_three() {
-	LinkedList *list = initList();
+	LinkedList *list = init_list();
 	append(list, 5);
 	append(list, 12);
 	append(list, 32);
