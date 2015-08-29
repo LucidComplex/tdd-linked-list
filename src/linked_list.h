@@ -1,6 +1,7 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
+#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -16,12 +17,12 @@ typedef struct {
 	Node *tail;
 } LinkedList;
 
-LinkedList *init_list() {
+LinkedList *list_init() {
 	LinkedList *list = malloc(sizeof(*list));
 	return list;
 }
 
-void prepend(LinkedList *list, int element) {
+void list_prepend(LinkedList *list, int element) {
 	Node *temp = malloc(sizeof(*temp));
 	temp->element = element;
 	temp->next = list->head;
@@ -34,7 +35,7 @@ void prepend(LinkedList *list, int element) {
 	list->size++;
 }
 
-void append(LinkedList *list, int element) {
+void list_append(LinkedList *list, int element) {
 	Node *temp = malloc(sizeof(*temp));
 	temp->element = element;
 	temp->prev = list->tail;
@@ -45,6 +46,27 @@ void append(LinkedList *list, int element) {
 	}
 	list->tail = temp;
 	list->size++;
+}
+
+int list_get(LinkedList *list, int index) {
+	Node *temp = list->head;
+	for (int ii = 0; ii < index; ++ii) {
+		temp = temp->next;
+	}
+	return temp->element;
+}
+
+void list_remove(LinkedList *list, int index) {
+	Node *temp = list->head;
+	for (int ii = 0; ii < index; ++ii) {
+		temp = temp->next;
+	}
+	if (0 == temp->prev) {
+		list->head = temp->next;
+		free(list->head->prev);
+		list->head->prev = 0;
+	}
+	list->size--;
 }
 
 #endif
